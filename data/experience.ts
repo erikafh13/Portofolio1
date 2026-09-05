@@ -41,7 +41,7 @@ export const experience: ExperienceItem[] = [
       "/images/experience/sier-09.jpg",
       "/images/experience/sier-10.jpg"
     ],
-    certificate: ""
+    certificate: "/images/experience/sertifikat-sier-magang.pdf"
   },
   {
     id: "db-klik-business-development",
