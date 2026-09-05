@@ -6,10 +6,13 @@ import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 import type { OrganizationItem } from "@/lib/types";
 import PhotoSlider from "./PhotoSlider";
+import CertificateButton from "./CertificateButton";
 
 export default function OrganizationCard({ item, index }: { item: OrganizationItem; index: number }) {
   const { t, lang } = useLanguage();
   const [open, setOpen] = useState(false);
+
+  const toggle = () => setOpen((prev) => !prev);
 
   const sortedRoles = [...item.roles].sort((a, b) => b.startYear - a.startYear);
   const latest = sortedRoles[0];
@@ -24,10 +27,18 @@ export default function OrganizationCard({ item, index }: { item: OrganizationIt
       </span>
 
       <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-soft transition hover:shadow-soft-lg dark:border-border-dark dark:bg-card-dark">
-        <button
-          onClick={() => setOpen((prev) => !prev)}
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={toggle}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              toggle();
+            }
+          }}
           aria-expanded={open}
-          className="flex w-full items-start justify-between gap-4 p-5 text-left sm:p-6"
+          className="flex w-full cursor-pointer items-start justify-between gap-4 p-5 text-left sm:p-6"
         >
           <div className="min-w-0">
             <p className="font-display text-base font-semibold text-text-primary dark:text-text-dark-primary">
@@ -46,12 +57,15 @@ export default function OrganizationCard({ item, index }: { item: OrganizationIt
               )}
             </div>
           </div>
-          <ChevronDown
-            className={`mt-1 h-4 w-4 flex-none text-text-secondary transition-transform dark:text-text-dark-secondary ${
-              open ? "rotate-180" : ""
-            }`}
-          />
-        </button>
+          <div className="flex flex-none items-center gap-2">
+            <CertificateButton src={item.certificate} title={item.name} />
+            <ChevronDown
+              className={`h-4 w-4 flex-none text-text-secondary transition-transform dark:text-text-dark-secondary ${
+                open ? "rotate-180" : ""
+              }`}
+            />
+          </div>
+        </div>
 
         <AnimatePresence initial={false}>
           {open && (
