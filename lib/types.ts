@@ -30,6 +30,7 @@ export type ExperienceItem = {
   responsibilities: Localized[];
   skills?: string[];
   images?: string[];
+  certificate?: string;
 };
 
 export type OrganizationRole = {
@@ -45,6 +46,7 @@ export type OrganizationItem = {
   name: string;
   roles: OrganizationRole[];
   images?: string[];
+  certificate?: string;
 };
 
 export type EventItem = {
