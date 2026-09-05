@@ -40,7 +40,8 @@ export const experience: ExperienceItem[] = [
       "/images/experience/sier-08.jpg",
       "/images/experience/sier-09.jpg",
       "/images/experience/sier-10.jpg"
-    ]
+    ],
+    certificate: ""
   },
   {
     id: "db-klik-business-development",
@@ -70,7 +71,8 @@ export const experience: ExperienceItem[] = [
       }
     ],
     skills: ["Business Development", "Market Research", "Cross-team Collaboration"],
-    images: []
+    images: [],
+    certificate: ""
   },
   {
     id: "sier-administrator-bisnis",
@@ -100,7 +102,8 @@ export const experience: ExperienceItem[] = [
       }
     ],
     skills: ["Operations", "Administrative Management", "Scheduling"],
-    images: []
+    images: [],
+    certificate: ""
   },
   {
     id: "shopee-xpress-daily-worker",
@@ -126,7 +129,8 @@ export const experience: ExperienceItem[] = [
       }
     ],
     skills: ["Teamwork", "Operations"],
-    images: []
+    images: [],
+    certificate: ""
   },
   {
     id: "indokertas-kemasan-magang-smk",
@@ -160,6 +164,7 @@ export const experience: ExperienceItem[] = [
       }
     ],
     skills: ["Digital Marketing", "Content Editing", "Telemarketing"],
-    images: []
+    images: [],
+    certificate: ""
   }
 ];
