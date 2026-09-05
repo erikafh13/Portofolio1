@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border dark:border-border-dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-text-primary dark:bg-bg-dark dark:text-text-dark-primary;
+    font-family: var(--font-body), sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), sans-serif;
+  }
+
+  ::selection {
+    background-color: #2F6FED;
+    color: #FFFFFF;
+  }
+
+  :focus-visible {
+    outline: 2px solid #2F6FED;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #C3D3F2;
+    border-radius: 999px;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background-color: #26396B;
+  }
+}
+
+@layer utilities {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8 lg:px-10;
+  }
+
+  .section-padding {
+    @apply py-12 sm:py-16;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer utilities {
+  .accent-bar {
+    @apply h-1.5 w-12 rounded-full bg-gradient-to-r from-navy via-navy to-accent dark:from-accent-dark dark:via-accent-dark dark:to-accent;
+  }
+
+  .decorative-dots {
+    background-image: radial-gradient(currentColor 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Layered mesh backdrop used behind the hero */
+  .bg-mesh {
+    background-image:
+      radial-gradient(600px circle at 12% 18%, rgba(47, 111, 237, 0.14), transparent 60%),
+      radial-gradient(560px circle at 88% 8%, rgba(14, 42, 94, 0.14), transparent 55%),
+      radial-gradient(720px circle at 65% 85%, rgba(47, 111, 237, 0.08), transparent 60%);
+  }
+  .dark .bg-mesh {
+    background-image:
+      radial-gradient(600px circle at 12% 18%, rgba(91, 157, 255, 0.16), transparent 60%),
+      radial-gradient(560px circle at 88% 8%, rgba(91, 157, 255, 0.1), transparent 55%),
+      radial-gradient(720px circle at 65% 85%, rgba(91, 157, 255, 0.07), transparent 60%);
+  }
+
+  /* Fine graph-paper grid, used sparingly as a hero backdrop texture */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(14, 42, 94, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14, 42, 94, 0.06) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 40%, transparent 90%);
+  }
+  .dark .bg-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  }
+
+  /* Corner tick marks, referencing certificate / official-document framing */
+  .corner-ticks::before,
+  .corner-ticks::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-color: #2F6FED;
+    z-index: 10;
+  }
+  .dark .corner-ticks::before,
+  .dark .corner-ticks::after {
+    border-color: #5B9DFF;
+  }
+  .corner-ticks::before {
+    top: -10px;
+    left: -10px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+    border-radius: 4px 0 0 0;
+  }
+  .corner-ticks::after {
+    bottom: -10px;
+    right: -10px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    border-radius: 0 0 4px 0;
+  }
+}
+
+.rounded-2xl.border {
+  box-shadow: 0 1px 2px rgba(14, 42, 94, 0.05), 0 10px 30px -18px rgba(14, 42, 94, 0.2);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.rounded-2xl.border:hover {
+  box-shadow: 0 2px 4px rgba(14, 42, 94, 0.07), 0 20px 40px -20px rgba(14, 42, 94, 0.26);
+}
+
+.dark .rounded-2xl.border {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark .rounded-2xl.border:hover {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 16px 32px -16px rgba(91, 157, 255, 0.14);
+}
