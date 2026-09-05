@@ -5,6 +5,7 @@ export const organization: OrganizationItem[] = [
     id: "ukki-upnvjt",
     name: "UKKI UPNVJT",
     images: [],
+    certificate: "",
     roles: [
       {
         id: "ukki-ketua-umum",
@@ -42,6 +43,7 @@ export const organization: OrganizationItem[] = [
     id: "ipnu-ranting-bulak",
     name: "IPNU Ranting Bulak",
     images: [],
+    certificate: "",
     roles: [
       {
         id: "ipnu-sekretaris-umum",
