@@ -6,10 +6,13 @@ import { ChevronDown } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 import type { ExperienceItem } from "@/lib/types";
 import PhotoSlider from "./PhotoSlider";
+import CertificateButton from "./CertificateButton";
 
 export default function ExperienceCard({ item, index }: { item: ExperienceItem; index: number }) {
   const { t } = useLanguage();
   const [open, setOpen] = useState(false);
+
+  const toggle = () => setOpen((prev) => !prev);
 
   return (
     <div className="relative pl-14 sm:pl-16">
@@ -18,10 +21,18 @@ export default function ExperienceCard({ item, index }: { item: ExperienceItem; 
       </span>
 
       <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-soft transition hover:shadow-soft-lg dark:border-border-dark dark:bg-card-dark">
-        <button
-          onClick={() => setOpen((prev) => !prev)}
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={toggle}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              toggle();
+            }
+          }}
           aria-expanded={open}
-          className="flex w-full items-start justify-between gap-4 p-5 text-left sm:p-6"
+          className="flex w-full cursor-pointer items-start justify-between gap-4 p-5 text-left sm:p-6"
         >
           <div className="min-w-0">
             <p className="font-display text-base font-semibold text-text-primary dark:text-text-dark-primary">
@@ -39,12 +50,15 @@ export default function ExperienceCard({ item, index }: { item: ExperienceItem; 
               </p>
             )}
           </div>
-          <ChevronDown
-            className={`mt-1 h-4 w-4 flex-none text-text-secondary transition-transform dark:text-text-dark-secondary ${
-              open ? "rotate-180" : ""
-            }`}
-          />
-        </button>
+          <div className="flex flex-none items-center gap-2">
+            <CertificateButton src={item.certificate} title={t(item.position)} />
+            <ChevronDown
+              className={`h-4 w-4 flex-none text-text-secondary transition-transform dark:text-text-dark-secondary ${
+                open ? "rotate-180" : ""
+              }`}
+            />
+          </div>
+        </div>
 
         <AnimatePresence initial={false}>
           {open && (
@@ -57,9 +71,9 @@ export default function ExperienceCard({ item, index }: { item: ExperienceItem; 
             >
               <div className="px-5 pb-6 sm:px-6">
                 <ul className="space-y-2.5 border-t border-border pt-4 dark:border-border-dark">
-                  {item.responsibilities.map((point, index) => (
+                  {item.responsibilities.map((point, i) => (
                     <li
-                      key={index}
+                      key={i}
                       className="flex gap-2.5 text-sm text-text-secondary dark:text-text-dark-secondary"
                     >
                       <span className="mt-1.5 h-1 w-1 flex-none rounded-full bg-accent dark:bg-accent-dark" />
