@@ -21,7 +21,7 @@ function ProfileVisual() {
   const initials = "WA";
 
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[360px]">
+    <div className="relative mx-auto aspect-square w-full max-w-[280px] sm:max-w-[360px]">
       <div
         className="absolute inset-0 rounded-[2rem] bg-[linear-gradient(135deg,#0E2A5E_0%,#2F6FED_100%)] opacity-90"
         aria-hidden="true"
@@ -60,7 +60,7 @@ function ProfileVisual() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 + index * 0.15, duration: 0.5 }}
-          className={`absolute rounded-full border border-border bg-white px-3 py-1.5 text-xs font-semibold text-navy shadow-soft dark:border-border-dark dark:bg-card-dark dark:text-white ${
+          className={`absolute rounded-full border border-border bg-white px-2.5 py-1 text-[11px] font-semibold text-navy shadow-soft dark:border-border-dark dark:bg-card-dark dark:text-white sm:px-3 sm:py-1.5 sm:text-xs ${
             index === 0
               ? "-left-6 top-8"
               : index === 1
