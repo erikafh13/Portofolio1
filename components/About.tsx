@@ -1,169 +1,87 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
-import { useActiveSection } from "@/lib/use-active-section";
 import { profile } from "@/data/profile";
-import ThemeToggle from "./ThemeToggle";
-import LanguageToggle from "./LanguageToggle";
-import DownloadCVButton from "./DownloadCVButton";
+import { experience } from "@/data/experience";
+import { organization } from "@/data/organization";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
+import SectionGlow from "./SectionGlow";
+import Skills from "./Skills";
+import Education from "./Education";
 
-const sections = [
-  { id: "home", label: { id: "Beranda", en: "Home" } },
-  { id: "about", label: { id: "Tentang", en: "About" } },
-  { id: "experience", label: { id: "Pengalaman", en: "Experience" } },
-  { id: "achievements", label: { id: "Pencapaian", en: "Achievements" } },
-  { id: "contact", label: { id: "Kontak", en: "Contact" } }
-];
+export default function About() {
+  const { lang } = useLanguage();
 
-function BrandMark() {
-  const [imgError, setImgError] = useState(false);
-
-  return (
-    <span className="relative flex h-9 w-9 flex-none items-center justify-center overflow-hidden rounded-full bg-[linear-gradient(135deg,#0E2A5E_0%,#2F6FED_100%)] font-display text-xs font-bold text-white">
-      {!imgError ? (
-        <Image
-          src={profile.profileImage}
-          alt={profile.name}
-          fill
-          sizes="36px"
-          className="object-cover"
-          onError={() => setImgError(true)}
-        />
-      ) : (
-        "WA"
-      )}
-    </span>
-  );
-}
-
-export default function Navbar() {
-  const { lang, t } = useLanguage();
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const activeId = useActiveSection(sections.map((s) => s.id));
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [mobileOpen]);
-
-  const handleNavClick = (id: string) => {
-    setMobileOpen(false);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+  const stats = [
+    {
+      value: String(experience.length),
+      label: { id: "Pengalaman Magang & Kerja", en: "Internships & Work Experience" },
+      href: "#pengalaman-kerja"
+    },
+    {
+      value: String(organization.length),
+      label: { id: "Organisasi Diikuti", en: "Organizations Involved" },
+      href: "#organisasi"
     }
-  };
+  ];
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-white/85 backdrop-blur-md transition-shadow duration-300 dark:border-border-dark/70 dark:bg-bg-dark/85 ${
-        scrolled ? "shadow-soft" : ""
-      }`}
-    >
-      <nav className="container-content flex h-16 items-center justify-between">
-        <button
-          onClick={() => handleNavClick("home")}
-          aria-label={profile.name}
-          className="flex items-center whitespace-nowrap"
-        >
-          <BrandMark />
-        </button>
+    <section id="about" className="section-padding scroll-mt-20 relative overflow-hidden">
+      <SectionGlow variant="top-right" tint="accent" />
+      <div className="container-content">
+        <Reveal>
+          <SectionHeading heading={profile.aboutHeading} />
+        </Reveal>
 
-        <ul className="hidden items-center gap-0.5 xl:flex">
-          {sections.map((section) => (
-            <li key={section.id}>
-              <button
-                onClick={() => handleNavClick(section.id)}
-                className={`relative whitespace-nowrap px-3 py-2 text-sm font-medium transition ${
-                  activeId === section.id
-                    ? "text-accent dark:text-accent-dark"
-                    : "text-text-secondary hover:text-navy dark:text-text-dark-secondary dark:hover:text-white"
-                }`}
-              >
-                {t(section.label)}
-                {activeId === section.id && (
-                  <motion.span
-                    layoutId="nav-active-indicator"
-                    className="absolute inset-x-3 -bottom-[1px] h-[2px] rounded-full bg-accent dark:bg-accent-dark"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </button>
-            </li>
-          ))}
-        </ul>
+        <div className="mt-8 grid items-start gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-14">
+          <Reveal>
+            <p className="text-base leading-relaxed text-text-secondary dark:text-text-dark-secondary">
+              {lang === "id" ? profile.aboutText.id : profile.aboutText.en}
+            </p>
 
-        <div className="hidden items-center gap-2.5 xl:flex">
-          <DownloadCVButton variant="outline" />
-          <LanguageToggle />
-          <ThemeToggle />
-          <button
-            onClick={() => handleNavClick("contact")}
-            className="whitespace-nowrap rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent dark:bg-accent-dark dark:hover:bg-accent"
-          >
-            {lang === "id" ? "Mari Terhubung" : "Let's Connect"}
-          </button>
-        </div>
-
-        <div className="flex items-center gap-2 xl:hidden">
-          <LanguageToggle />
-          <ThemeToggle />
-          <button
-            onClick={() => setMobileOpen((prev) => !prev)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-navy dark:border-border-dark dark:text-white"
-          >
-            {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          </button>
-        </div>
-      </nav>
-
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden border-b border-border bg-white xl:hidden dark:border-border-dark dark:bg-bg-dark"
-          >
-            <ul className="container-content flex flex-col gap-1 py-4">
-              {sections.map((section) => (
-                <li key={section.id}>
-                  <button
-                    onClick={() => handleNavClick(section.id)}
-                    className={`w-full rounded-lg px-3 py-3 text-left text-sm font-medium transition ${
-                      activeId === section.id
-                        ? "bg-accent-light text-accent dark:bg-accent-dark/10 dark:text-accent-dark"
-                        : "text-text-secondary dark:text-text-dark-secondary"
-                    }`}
-                  >
-                    {t(section.label)}
-                  </button>
-                </li>
+            <div className="mt-8 grid grid-cols-2 gap-4">
+              {stats.map((stat) => (
+                <a
+                  key={stat.label.en}
+                  href={stat.href}
+                  className="group flex flex-col rounded-xl border border-border bg-gradient-to-br from-accent-light to-white px-5 py-5 transition hover:-translate-y-0.5 hover:border-accent dark:border-border-dark dark:from-card-dark dark:to-bg-dark-soft"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <p className="font-display text-3xl font-bold text-navy dark:text-white">
+                      {stat.value}
+                      <span className="text-accent dark:text-accent-dark">+</span>
+                    </p>
+                    <ArrowUpRight className="h-4 w-4 flex-none text-accent opacity-0 transition group-hover:opacity-100 dark:text-accent-dark" />
+                  </div>
+                  <p className="mt-1 text-xs text-text-secondary dark:text-text-dark-secondary">
+                    {lang === "id" ? stat.label.id : stat.label.en}
+                  </p>
+                </a>
               ))}
-              <li className="pt-2">
-                <DownloadCVButton />
-              </li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <h3 className="mb-4 font-display text-lg font-semibold text-text-primary dark:text-text-dark-primary">
+              {lang === "id" ? "Keahlian" : "Skills"}
+            </h3>
+            <Skills />
+          </Reveal>
+        </div>
+
+        <div className="mt-12">
+          <h3 className="font-display text-lg font-semibold text-text-primary dark:text-text-dark-primary">
+            {lang === "id" ? "Pendidikan" : "Education"}
+          </h3>
+          <div className="mt-5">
+            <Reveal>
+              <Education />
+            </Reveal>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
