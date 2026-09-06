@@ -108,12 +108,11 @@ export const experience: ExperienceItem[] = [
       "/images/experience/SIER UJP/2.jpg",
       "/images/experience/SIER UJP/3.jpg",
       "/images/experience/SIER UJP/4.jpg",
-      "/images/experience/SIER UJP/5.jpg",
+      "/images/experience/SIER UJP/5.png",
       "/images/experience/SIER UJP/6.jpg",
       "/images/experience/SIER UJP/7.jpg",
       "/images/experience/SIER UJP/8.jpg",
-      "/images/experience/SIER UJP/9.jpg",
-      "/images/experience/SIER UJP/10.jpg",
+      "/images/experience/SIER UJP/9.jpg"
     ],
     certificate: ""
   },
