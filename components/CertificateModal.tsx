@@ -44,11 +44,11 @@ export default function CertificateModal({
       aria-label={title}
     >
       <div
-        className="relative flex h-full w-full max-w-4xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl dark:bg-card-dark"
+        className="relative flex max-h-[92vh] w-auto max-w-[94vw] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl dark:bg-card-dark"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between border-b border-border px-4 py-3 dark:border-border-dark">
-          <p className="truncate pr-4 text-sm font-medium text-text-primary dark:text-text-dark-primary">
+        <div className="flex items-center justify-between gap-4 border-b border-border px-4 py-3 dark:border-border-dark">
+          <p className="min-w-0 truncate text-sm font-medium text-text-primary dark:text-text-dark-primary">
             {title}
           </p>
           <button
@@ -59,13 +59,27 @@ export default function CertificateModal({
             <X className="h-5 w-5" />
           </button>
         </div>
-        <div className="flex-1 overflow-auto bg-bg-soft dark:bg-bg-dark-soft">
+        <div className="overflow-auto bg-bg-soft dark:bg-bg-dark-soft">
           {isPdf ? (
-            <iframe src={src} title={title} className="h-full w-full" />
+            <iframe
+              src={src}
+              title={title}
+              className="block"
+              style={{
+                width: "min(85vw, 900px)",
+                height: "min(78vh, 640px)",
+                border: "none"
+              }}
+            />
           ) : (
-            <div className="flex min-h-full items-center justify-center p-4">
+            <div className="flex items-center justify-center p-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={src} alt={title} className="max-h-full w-auto max-w-full object-contain" />
+              <img
+                src={src}
+                alt={title}
+                className="block h-auto w-auto object-contain"
+                style={{ maxHeight: "80vh", maxWidth: "88vw" }}
+              />
             </div>
           )}
         </div>
