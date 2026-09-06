@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { X } from "lucide-react";
+import { X, ImageOff } from "lucide-react";
 
 export default function CertificateModal({
   src,
@@ -14,6 +14,7 @@ export default function CertificateModal({
   onClose: () => void;
 }) {
   const [mounted, setMounted] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -71,6 +72,13 @@ export default function CertificateModal({
                 border: "none"
               }}
             />
+          ) : imgError ? (
+            <div className="flex h-[50vh] w-[70vw] max-w-md flex-col items-center justify-center gap-3 p-6 text-center sm:w-[420px]">
+              <ImageOff className="h-8 w-8 text-text-secondary dark:text-text-dark-secondary" />
+              <p className="text-sm text-text-secondary dark:text-text-dark-secondary">
+                Gambar tidak ditemukan. Pastikan file dan path-nya sudah benar.
+              </p>
+            </div>
           ) : (
             <div className="flex items-center justify-center p-4">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -79,6 +87,7 @@ export default function CertificateModal({
                 alt={title}
                 className="block h-auto w-auto object-contain"
                 style={{ maxHeight: "80vh", maxWidth: "88vw" }}
+                onError={() => setImgError(true)}
               />
             </div>
           )}
