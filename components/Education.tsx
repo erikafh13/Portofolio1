@@ -3,6 +3,7 @@
 import { GraduationCap } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 import { education } from "@/data/education";
+import CertificateButton from "./CertificateButton";
 
 export default function Education() {
   const { t, lang } = useLanguage();
@@ -17,10 +18,13 @@ export default function Education() {
           <div className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-accent-light text-navy dark:bg-accent-dark/10 dark:text-accent-dark">
             <GraduationCap className="h-5 w-5" />
           </div>
-          <div className="min-w-0">
-            <p className="font-display text-sm font-semibold text-text-primary dark:text-text-dark-primary">
-              {item.institution}
-            </p>
+          <div className="min-w-0 flex-1">
+            <div className="flex items-start justify-between gap-3">
+              <p className="font-display text-sm font-semibold text-text-primary dark:text-text-dark-primary">
+                {item.institution}
+              </p>
+              <CertificateButton src={item.certificate} title={item.institution} />
+            </div>
             <p className="mt-0.5 text-sm text-text-secondary dark:text-text-dark-secondary">
               {t(item.degree)} &middot; {item.location}
             </p>
