@@ -71,7 +71,7 @@ export const experience: ExperienceItem[] = [
       "/images/experience/DB KLIK/DB 4.png",
       "/images/experience/DB KLIK/DB 5.png",
       "/images/experience/DB KLIK/DB 6.jpg",
-      "/images/experience/DB KLIK/DB 7.jpg",
+      "/images/experience/DB KLIK/DB 7.jpg"
     ],
     certificate: ""
   },
