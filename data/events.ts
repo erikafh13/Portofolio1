@@ -31,7 +31,7 @@ export const events: EventItem[] = [
       { id: "Koordinasi transportasi dan jadwal.", en: "Transportation and schedule coordination." }
     ],
     images: [],
-    certificate: ""
+    certificate: "event/jnt.jpg"
   },
   {
     id: "diklat-ukki-2023",
