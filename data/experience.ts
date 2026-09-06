@@ -30,7 +30,7 @@ export const experience: ExperienceItem[] = [
     ],
     skills: ["Administrative Management", "Microsoft Office", "Operational Coordination"],
     images: [
-      "/SIER UMP/1.png",
+      "/experience/SIER UMP/1.png",
       "/experience/SIER UMP/2.png",
       "/experience/SIER UMP/3.jpg",
     ],
