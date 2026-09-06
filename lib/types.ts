@@ -56,6 +56,8 @@ export type EventItem = {
   role: Localized;
   period: string;
   details: Localized[];
+  images?: string[];
+  certificate?: string;
 };
 
 export type ProjectCategory = "Business" | "Design" | "Digital Marketing" | "Other";
