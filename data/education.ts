@@ -14,7 +14,8 @@ export const education: EducationItem[] = [
       { id: "Kewirausahaan", en: "Entrepreneurship" },
       { id: "Manajemen Sumber Daya Manusia", en: "Human Resource Management" },
       { id: "Perilaku Organisasi", en: "Organizational Behavior" }
-    ]
+    ],
+    certificate: ""
   },
   {
     institution: "SMK Negeri 10 Surabaya",
@@ -28,6 +29,7 @@ export const education: EducationItem[] = [
       { id: "Salesmanship", en: "Salesmanship" },
       { id: "Administrasi Perkantoran", en: "Office Administration" },
       { id: "Kewirausahaan Digital", en: "Digital Entrepreneurship" }
-    ]
+    ],
+    certificate: ""
   }
 ];
