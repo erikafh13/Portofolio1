@@ -30,11 +30,11 @@ export const experience: ExperienceItem[] = [
     ],
     skills: ["Administrative Management", "Microsoft Office", "Operational Coordination"],
     images: [
-      "/images/experience/SIER UMP/1.png",
-      "/images/experience/SIER UMP/2.png",
-      "/images/experience/SIER UMP/3.jpg",
+      "/experience/SIER UMP/1.png",
+      "/experience/SIER UMP/2.png",
+      "/experience/SIER UMP/3.jpg",
     ],
-    certificate: "/images/experience/sertifikat-sier-magang.pdf"
+    certificate: "/experience/Sertifikat Magang SIER_Divisi UMP_2026.pdf"
   },
   {
     id: "db-klik-business-development",
@@ -65,15 +65,15 @@ export const experience: ExperienceItem[] = [
     ],
     skills: ["Business Development", "Market Research", "Cross-team Collaboration"],
     images: [
-      "/images/experience/DB KLIK/DB 1.jpg",
-      "/images/experience/DB KLIK/DB 2.png",
-      "/images/experience/DB KLIK/DB 3.png",
-      "/images/experience/DB KLIK/DB 4.png",
-      "/images/experience/DB KLIK/DB 5.png",
-      "/images/experience/DB KLIK/DB 6.jpg",
-      "/images/experience/DB KLIK/DB 7.jpg"
+      "/experience/DB KLIK/DB 1.jpg",
+      "/experience/DB KLIK/DB 2.png",
+      "/experience/DB KLIK/DB 3.png",
+      "/experience/DB KLIK/DB 4.png",
+      "/experience/DB KLIK/DB 5.png",
+      "/experience/DB KLIK/DB 6.jpg",
+      "/experience/DB KLIK/DB 7.jpg"
     ],
-    certificate: ""
+    certificate: "/experience/DB KLIK/Sertifikat DB KLIK.jpeg"
   },
   {
     id: "sier-administrator-bisnis",
@@ -104,17 +104,17 @@ export const experience: ExperienceItem[] = [
     ],
     skills: ["Operations", "Administrative Management", "Scheduling"],
     images: [
-      "/images/experience/SIER UJP/1.jpg",
-      "/images/experience/SIER UJP/2.jpg",
-      "/images/experience/SIER UJP/3.jpg",
-      "/images/experience/SIER UJP/4.jpg",
-      "/images/experience/SIER UJP/5.png",
-      "/images/experience/SIER UJP/6.jpg",
-      "/images/experience/SIER UJP/7.jpg",
-      "/images/experience/SIER UJP/8.jpg",
-      "/images/experience/SIER UJP/9.jpg"
+      "/experience/SIER UJP/1.jpg",
+      "/experience/SIER UJP/2.jpg",
+      "/experience/SIER UJP/3.jpg",
+      "/experience/SIER UJP/4.jpg",
+      "/experience/SIER UJP/5.png",
+      "/experience/SIER UJP/6.jpg",
+      "/experience/SIER UJP/7.jpg",
+      "/experience/SIER UJP/8.jpg",
+      "/experience/SIER UJP/9.jpg"
     ],
-    certificate: ""
+    certificate: "/experience/SIER UJP/Sertifikat Magang_ PT SIER_JSP_2024.pdf"
   },
   {
     id: "shopee-xpress-daily-worker",
