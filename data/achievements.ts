@@ -31,9 +31,9 @@ export const awards: AwardItem[] = [
   },
   {
     id: "juara-terinspiratif",
-    title: { id: "Juara Terinspiratif", en: "Most Inspiring Award" },
-    issuer: "",
-    period: "",
+    title: { id: "Juara Terinspiratif-Inovasi Teknologi Digital Pendidikan", en: "Most Inspiring Award — Digital Education Technology Innovation" },
+    issuer: "Universitas Negeri Makassar",
+    period: "Agt 2026",
     certificate: "/public/lomba/Juara Terinspiratif_Wijaya Agus Setiawan.pdf"
   }
 ];
