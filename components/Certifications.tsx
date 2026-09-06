@@ -3,6 +3,7 @@
 import { Award } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 import { certifications } from "@/data/certifications";
+import CertificateButton from "./CertificateButton";
 
 export default function Certifications() {
   const { t, lang } = useLanguage();
@@ -25,10 +26,13 @@ export default function Certifications() {
           <div className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-accent-light text-navy dark:bg-accent-dark/10 dark:text-accent-dark">
             <Award className="h-5 w-5" />
           </div>
-          <div className="min-w-0">
-            <p className="font-display text-sm font-semibold text-text-primary dark:text-text-dark-primary">
-              {t(cert.name)}
-            </p>
+          <div className="min-w-0 flex-1">
+            <div className="flex items-start justify-between gap-3">
+              <p className="font-display text-sm font-semibold text-text-primary dark:text-text-dark-primary">
+                {t(cert.name)}
+              </p>
+              <CertificateButton src={cert.certificate} title={t(cert.name)} />
+            </div>
             <p className="mt-1 text-sm text-text-secondary dark:text-text-dark-secondary">{cert.issuer}</p>
             {(cert.date || cert.credentialId) && (
               <div className="mt-2 flex flex-wrap gap-x-3 text-xs text-text-secondary dark:text-text-dark-secondary">
