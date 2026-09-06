@@ -18,6 +18,7 @@ export type EducationItem = {
   scoreLabel: Localized;
   scoreValue: string;
   coursework?: Localized[];
+  certificate?: string;
 };
 
 export type ExperienceItem = {
