@@ -34,7 +34,7 @@ export const experience: ExperienceItem[] = [
       "/experience/SIER UMP/2.png",
       "/experience/SIER UMP/3.jpg",
     ],
-    certificate: "/experience/Sertifikat Magang SIER_Divisi UMP_2026.pdf"
+    certificate: "/experience/SIER UMP/Sertifikat Magang SIER_Divisi UMP_2026.pdf"
   },
   {
     id: "db-klik-business-development",
