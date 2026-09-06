@@ -98,7 +98,7 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="container-content grid items-center gap-14 pb-14 sm:pb-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
+      <div className="container-content grid items-center gap-14 pb-6 sm:pb-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
