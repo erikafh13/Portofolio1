@@ -29,7 +29,7 @@ export const profile = {
     en: "Surabaya, Indonesia"
   },
   cvPath: "/documents/CV-Wijaya-Agus-Setiawan.pdf",
-  profileImage: "/public/profile/Foto Linkedin.jpeg",
+  profileImage: "/profile/Foto Linkedin.jpeg",
   tagline: {
     id: "Administrasi Bisnis | Business Development | Administrasi | Kepemimpinan",
     en: "Business Administration | Business Development | Administration | Leadership"
