@@ -8,6 +8,7 @@ import SectionHeading from "./SectionHeading";
 import SectionGlow from "./SectionGlow";
 import Certifications from "./Certifications";
 import Publications from "./Publications";
+import CertificateButton from "./CertificateButton";
 
 const heading = { id: "Pencapaian", en: "Achievements" };
 const description = {
@@ -37,10 +38,13 @@ export default function Achievements() {
                   <div className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-accent-light text-navy dark:bg-accent-dark/10 dark:text-accent-dark">
                     <Trophy className="h-5 w-5" />
                   </div>
-                  <div className="min-w-0">
-                    <p className="font-display text-sm font-semibold text-text-primary dark:text-text-dark-primary">
-                      {t(award.title)}
-                    </p>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-start justify-between gap-3">
+                      <p className="font-display text-sm font-semibold text-text-primary dark:text-text-dark-primary">
+                        {t(award.title)}
+                      </p>
+                      <CertificateButton src={award.certificate} title={t(award.title)} />
+                    </div>
                     <p className="mt-1 text-sm text-text-secondary dark:text-text-dark-secondary">
                       {award.issuer}
                     </p>
@@ -54,7 +58,7 @@ export default function Achievements() {
           </div>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-12">
           <h3 className="font-display text-lg font-semibold text-text-primary dark:text-text-dark-primary">
             {lang === "id" ? "Sertifikasi" : "Certifications"}
           </h3>
@@ -65,7 +69,7 @@ export default function Achievements() {
           </div>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-12">
           <h3 className="font-display text-lg font-semibold text-text-primary dark:text-text-dark-primary">
             {lang === "id" ? "Publikasi" : "Publications"}
           </h3>
