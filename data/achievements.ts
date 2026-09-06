@@ -20,7 +20,7 @@ export const awards: AwardItem[] = [
     title: { id: "Juara 1 \u2014 Esai EDUCREAFEST", en: "1st Place \u2014 EDUCREAFEST Essay" },
     issuer: "Universitas Negeri Malang",
     period: "Jul 2026",
-    certificate: "/public/lomba/Juara 1 Essai.pdf"
+    certificate: "/public/lomba/Juara-1-Essai.pdf"
   },
   {
     id: "unkris-scientific-writing",
