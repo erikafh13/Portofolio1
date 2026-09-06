@@ -89,7 +89,7 @@ export type CertificationItem = {
   date: string;
   credentialId?: string;
   credentialUrl?: string;
-  image?: string;
+  certificate?: string;
 };
 
 export type PublicationType = "Journal" | "Article" | "Scientific Paper" | "Other";
