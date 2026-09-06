@@ -30,16 +30,9 @@ export const experience: ExperienceItem[] = [
     ],
     skills: ["Administrative Management", "Microsoft Office", "Operational Coordination"],
     images: [
-      "/images/experience/sier-01.jpg",
-      "/images/experience/sier-02.jpg",
-      "/images/experience/sier-03.jpg",
-      "/images/experience/sier-04.jpg",
-      "/images/experience/sier-05.jpg",
-      "/images/experience/sier-06.jpg",
-      "/images/experience/sier-07.jpg",
-      "/images/experience/sier-08.jpg",
-      "/images/experience/sier-09.jpg",
-      "/images/experience/sier-10.jpg"
+      "/images/experience/SIER UMP/sier 01.jpg",
+      "/images/experience/SIER UMP/sier 02.jpg",
+      "/images/experience/SIER UMP/sier 03.jpg",
     ],
     certificate: "/images/experience/sertifikat-sier-magang.pdf"
   },
@@ -71,7 +64,15 @@ export const experience: ExperienceItem[] = [
       }
     ],
     skills: ["Business Development", "Market Research", "Cross-team Collaboration"],
-    images: [],
+    images: [
+      "/images/experience/DB KLIK/DB 1.jpg",
+      "/images/experience/DB KLIK/DB 2.png",
+      "/images/experience/DB KLIK/DB 3.png",
+      "/images/experience/DB KLIK/DB 4.png",
+      "/images/experience/DB KLIK/DB 5.png",
+      "/images/experience/DB KLIK/DB 6.jpg",
+      "/images/experience/DB KLIK/DB 7.jpg",
+    ],
     certificate: ""
   },
   {
@@ -102,7 +103,18 @@ export const experience: ExperienceItem[] = [
       }
     ],
     skills: ["Operations", "Administrative Management", "Scheduling"],
-    images: [],
+    images: [
+      "/images/experience/SIER UJP/1.jpg",
+      "/images/experience/SIER UJP/2.jpg",
+      "/images/experience/SIER UJP/3.jpg",
+      "/images/experience/SIER UJP/4.jpg",
+      "/images/experience/SIER UJP/5.jpg",
+      "/images/experience/SIER UJP/6.jpg",
+      "/images/experience/SIER UJP/7.jpg",
+      "/images/experience/SIER UJP/8.jpg",
+      "/images/experience/SIER UJP/9.jpg",
+      "/images/experience/SIER UJP/10.jpg",
+    ],
     certificate: ""
   },
   {
