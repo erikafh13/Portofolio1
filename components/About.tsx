@@ -1,45 +1,87 @@
 "use client";
 
+import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
-import { skills } from "@/data/skills";
+import { profile } from "@/data/profile";
+import { experience } from "@/data/experience";
+import { organization } from "@/data/organization";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
+import SectionGlow from "./SectionGlow";
+import Skills from "./Skills";
+import Education from "./Education";
 
-export default function Skills() {
+export default function About() {
   const { lang } = useLanguage();
-  const hard = skills.filter((s) => s.category === "hard");
-  const soft = skills.filter((s) => s.category === "soft");
+
+  const stats = [
+    {
+      value: String(experience.length),
+      label: { id: "Pengalaman Magang & Kerja", en: "Internships & Work Experience" },
+      href: "#pengalaman-kerja"
+    },
+    {
+      value: String(organization.length),
+      label: { id: "Organisasi Diikuti", en: "Organizations Involved" },
+      href: "#organisasi"
+    }
+  ];
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2">
-      <div className="rounded-2xl border border-border bg-white p-5 dark:border-border-dark dark:bg-card-dark">
-        <h4 className="font-display text-base font-semibold text-text-primary dark:text-text-dark-primary">
-          {lang === "id" ? "Hard Skills" : "Hard Skills"}
-        </h4>
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {hard.map((skill) => (
-            <span
-              key={skill.name}
-              className="rounded-full border border-border bg-bg-soft px-2.5 py-1 text-xs font-medium text-text-primary dark:border-border-dark dark:bg-bg-dark-soft dark:text-text-dark-primary"
-            >
-              {skill.name}
-            </span>
-          ))}
+    <section id="about" className="pb-12 pt-6 sm:pb-16 sm:pt-10 scroll-mt-20 relative overflow-hidden">
+      <SectionGlow variant="top-right" tint="accent" />
+      <div className="container-content">
+        <Reveal>
+          <SectionHeading heading={profile.aboutHeading} />
+        </Reveal>
+
+        <div className="mt-8 grid items-start gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-14">
+          <Reveal>
+            <p className="text-base leading-relaxed text-text-secondary dark:text-text-dark-secondary">
+              {lang === "id" ? profile.aboutText.id : profile.aboutText.en}
+            </p>
+
+            <div className="mt-8 grid grid-cols-2 gap-4">
+              {stats.map((stat) => (
+                <a
+                  key={stat.label.en}
+                  href={stat.href}
+                  className="group flex flex-col rounded-xl border border-border bg-gradient-to-br from-accent-light to-white px-5 py-5 transition hover:-translate-y-0.5 hover:border-accent dark:border-border-dark dark:from-card-dark dark:to-bg-dark-soft"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <p className="font-display text-3xl font-bold text-navy dark:text-white">
+                      {stat.value}
+                      <span className="text-accent dark:text-accent-dark">+</span>
+                    </p>
+                    <ArrowUpRight className="h-4 w-4 flex-none text-accent opacity-0 transition group-hover:opacity-100 dark:text-accent-dark" />
+                  </div>
+                  <p className="mt-1 text-xs text-text-secondary dark:text-text-dark-secondary">
+                    {lang === "id" ? stat.label.id : stat.label.en}
+                  </p>
+                </a>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <h3 className="mb-4 font-display text-lg font-semibold text-text-primary dark:text-text-dark-primary">
+              {lang === "id" ? "Keahlian" : "Skills"}
+            </h3>
+            <Skills />
+          </Reveal>
+        </div>
+
+        <div className="mt-12">
+          <h3 className="font-display text-lg font-semibold text-text-primary dark:text-text-dark-primary">
+            {lang === "id" ? "Pendidikan" : "Education"}
+          </h3>
+          <div className="mt-5">
+            <Reveal>
+              <Education />
+            </Reveal>
+          </div>
         </div>
       </div>
-      <div className="rounded-2xl border border-border bg-white p-5 dark:border-border-dark dark:bg-card-dark">
-        <h4 className="font-display text-base font-semibold text-text-primary dark:text-text-dark-primary">
-          {lang === "id" ? "Soft Skills" : "Soft Skills"}
-        </h4>
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {soft.map((skill) => (
-            <span
-              key={skill.name}
-              className="rounded-full bg-accent px-2.5 py-1 text-xs font-semibold text-white shadow-sm dark:bg-accent-dark dark:text-navy"
-            >
-              {skill.name}
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
+    </section>
   );
 }
