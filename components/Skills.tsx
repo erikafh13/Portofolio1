@@ -33,7 +33,7 @@ export default function Skills() {
           {soft.map((skill) => (
             <span
               key={skill.name}
-              className="rounded-full bg-accent px-2.5 py-1 text-xs font-semibold text-white shadow-sm dark:bg-accent-dark dark:text-navy"
+              className="rounded-full border border-border bg-bg-soft px-2.5 py-1 text-xs font-medium text-text-primary dark:border-border-dark dark:bg-bg-dark-soft dark:text-text-dark-primary"
             >
               {skill.name}
             </span>
