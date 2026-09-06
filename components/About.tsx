@@ -31,13 +31,10 @@ export default function About() {
     <section id="about" className="pb-12 pt-6 sm:pb-16 sm:pt-10 scroll-mt-20 relative overflow-hidden">
       <SectionGlow variant="top-right" tint="accent" />
       <div className="container-content">
-        <Reveal>
-          <SectionHeading heading={profile.aboutHeading} />
-        </Reveal>
-
-        <div className="mt-8 grid items-start gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-14">
+        <div className="grid items-start gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-14">
           <Reveal>
-            <p className="text-base leading-relaxed text-text-secondary dark:text-text-dark-secondary">
+            <SectionHeading heading={profile.aboutHeading} />
+            <p className="mt-6 text-base leading-relaxed text-text-secondary dark:text-text-dark-secondary">
               {lang === "id" ? profile.aboutText.id : profile.aboutText.en}
             </p>
 
@@ -64,9 +61,10 @@ export default function About() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <h3 className="mb-4 font-display text-lg font-semibold text-text-primary dark:text-text-dark-primary">
+            <h3 className="font-display text-3xl font-bold text-text-primary dark:text-text-dark-primary">
               {lang === "id" ? "Keahlian" : "Skills"}
             </h3>
+            <div className="accent-bar mt-3 mb-6" aria-hidden="true" />
             <Skills />
           </Reveal>
         </div>
