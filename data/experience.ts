@@ -30,8 +30,8 @@ export const experience: ExperienceItem[] = [
     ],
     skills: ["Administrative Management", "Microsoft Office", "Operational Coordination"],
     images: [
-      "/images/experience/SIER UMP/sier 01.jpg",
-      "/images/experience/SIER UMP/sier 02.jpg",
+      "/images/experience/SIER UMP/sier 01.png",
+      "/images/experience/SIER UMP/sier 02.png",
       "/images/experience/SIER UMP/sier 03.jpg",
     ],
     certificate: "/images/experience/sertifikat-sier-magang.pdf"
