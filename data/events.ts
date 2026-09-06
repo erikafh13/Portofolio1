@@ -12,7 +12,9 @@ export const events: EventItem[] = [
       { id: "Menangani pembukaan, sesi materi, ice breaking, dan penutupan.", en: "Handled opening, material sessions, ice breaking, and closing." },
       { id: "Mengoordinasikan rundown dan kegiatan fasilitator.", en: "Coordinated rundown and facilitator activities." },
       { id: "Membantu menjaga suasana acara tetap interaktif.", en: "Helped maintain an interactive event atmosphere." }
-    ]
+    ],
+    images: [],
+    certificate: ""
   },
   {
     id: "grand-opening-onduline",
@@ -27,7 +29,9 @@ export const events: EventItem[] = [
       { id: "Penjemputan di bandara.", en: "Airport pickup." },
       { id: "Pendampingan tamu domestik dan internasional.", en: "Guest assistance for domestic and international guests." },
       { id: "Koordinasi transportasi dan jadwal.", en: "Transportation and schedule coordination." }
-    ]
+    ],
+    images: [],
+    certificate: ""
   },
   {
     id: "diklat-ukki-2023",
@@ -38,7 +42,9 @@ export const events: EventItem[] = [
     details: [
       { id: "Memimpin 5 anggota divisi acara.", en: "Led 5 event division members." },
       { id: "Mengelola acara pelatihan selama 3 hari.", en: "Managed a 3-day training event." }
-    ]
+    ],
+    images: [],
+    certificate: ""
   },
   {
     id: "pkkmb-bem-fisip-2023",
@@ -49,6 +55,8 @@ export const events: EventItem[] = [
     details: [
       { id: "Berpartisipasi dalam acara selama satu minggu.", en: "Participated in a one-week event." },
       { id: "Membantu koordinasi mobilisasi 1.000+ mahasiswa FISIP.", en: "Helped coordinate mobilization of 1,000+ FISIP students." }
-    ]
+    ],
+    images: [],
+    certificate: ""
   }
 ];
