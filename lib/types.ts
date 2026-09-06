@@ -79,6 +79,7 @@ export type AwardItem = {
   title: Localized;
   issuer: string;
   period: string;
+  certificate?: string;
 };
 
 export type CertificationItem = {
